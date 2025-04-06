@@ -1,0 +1,78 @@
+package Q7;
+
+public class Main {
+    public static void main(String[] args) {
+        Employee junior = new JuniorDeveloper("Syed Arham");
+        Employee senior = new SeniorDeveloper("Saad Naeem");
+        Employee manager = new ProjectManager("Malik Xaryab");
+        Employee custom = new CustomEvaluation("Abdul Rafay", "Client Feedback");
+        junior.evaluatePerformance();
+        senior.evaluatePerformance();
+        manager.evaluatePerformance();
+        custom.evaluatePerformance();
+        System.out.println("Promotion Evaluation:");
+        custom.evaluatePromotion();
+    }
+
+    static class CustomEvaluation extends Employee {
+        private String customCriteria;
+
+        public CustomEvaluation(String name, String customCriteria) {
+            super(name, "Custom Role");
+            this.customCriteria = customCriteria;
+        }
+        @Override
+        public void evaluatePerformance() {
+            System.out.println("Evaluating performance based on custom criteria: " + customCriteria);
+        }
+        @Override
+        public void evaluatePromotion() {
+            System.out.println("Extra review step for leadership skills evaluation.");
+        }
+    }
+
+    public static class Employee {
+        private String name;
+        private String role;
+        public Employee(String name, String role) {
+            this.name = name;
+            this.role = role;
+        }
+        public void evaluatePerformance() {
+            System.out.println("Evaluating performance for generic employee.");
+        }
+        public void evaluatePromotion() {
+            System.out.println("Generic promotion evaluation.");
+        }
+    }
+
+    static class JuniorDeveloper extends Employee {
+        public JuniorDeveloper(String name) {
+            super(name, "Junior Developer");
+        }
+        @Override
+        public void evaluatePerformance() {
+            System.out.println("Evaluating performance based on completed projects and code quality.");
+        }
+    }
+
+    static class ProjectManager extends Employee {
+        public ProjectManager(String name) {
+            super(name, "Project Manager");
+        }
+        @Override
+        public void evaluatePerformance() {
+            System.out.println("Evaluating performance based on project delivery success, budget adherence, and team efficiency.");
+        }
+    }
+
+    static class SeniorDeveloper extends Employee {
+        public SeniorDeveloper(String name) {
+            super(name, "Senior Developer");
+        }
+        @Override
+        public void evaluatePerformance() {
+            System.out.println("Evaluating performance based on team contributions, mentorship, and technical leadership.");
+        }
+    }
+}

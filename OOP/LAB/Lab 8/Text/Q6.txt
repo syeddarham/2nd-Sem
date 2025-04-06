@@ -1,0 +1,68 @@
+package Q6;
+
+class Main {
+    public static void main(String[] args) {
+        Task task = new Task();
+        task.assignTask("Fix Error", "1-2-2025");
+        task.assignTask("Do Seo", "2-4-2026", 2);
+        task.assignTask("Make Site Responsive", "20-4-2025", 10, 40.0);
+        Task se = new SoftwareEngineer();
+        se.assignTask("Fix Bugs", "25-6-2025");
+        Task tl = new TeamLead();
+        tl.assignTask("Code Review", "19-12-2025");
+        Task pm = new ProjectManager();
+        pm.assignTask("Prepare Report", "18-2-2025");
+    }
+
+    static class ProjectManager extends Task {
+
+        @Override
+        public void assignTask(String name, String deadline) {
+            System.out.println("Project Manager overriding Task");
+            super.assignTask(name, deadline);
+            System.out.println("Project Manager assigned the task with deadlines.");
+        }
+
+        // Overriding is done
+    }
+
+    static class SoftwareEngineer extends Task {
+
+        @Override
+        public void assignTask(String name, String deadline) {
+            super.assignTask(name, deadline);
+            System.out.println("Software Engineer assigned the task.");
+        }
+        // Overriding is Done
+    }
+
+    static class Task {
+        private String name;
+        private String deadline;
+        private int priority;
+        private double estimatedTime;
+
+        public void assignTask(String name, String deadline) {
+            System.out.println("Task assigned: " + name + " with deadline: " + deadline);
+        }
+        public void assignTask(String name, String deadline, int priority) {
+            System.out.println("Task assigned: " + name + " with deadline: " + deadline + " and priority: " + priority);
+        }
+        public void assignTask(String name, String deadline, int priority, double estimatedTime) {
+            System.out.println("Task assigned: " + name + " with deadline: " + deadline + ", priority: " + priority + ", and estimated time: " + estimatedTime + " hours");
+        }
+        // Overloading is Done
+    }
+
+    static class TeamLead extends Task {
+
+        @Override
+        public void assignTask(String name, String deadline) {
+            System.out.println("Team Lead reviewing task dependencies...");
+            super.assignTask(name, deadline);
+            System.out.println("Team Lead approved and assigned the task.");
+        }
+
+        //Overriding is Done
+    }
+}

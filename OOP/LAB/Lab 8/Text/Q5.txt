@@ -1,0 +1,56 @@
+package Q5;
+
+public class Event {
+    public void schedule() {
+        System.out.println("General competition schedule.");
+    }
+}
+
+class SpeedProgramming extends Event {
+    @Override
+    public void schedule() {
+        System.out.println("Speed Programming.");
+    }
+}
+
+class WebDevelopment extends Event {
+    @Override
+    public void schedule() {
+        System.out.println("Web Development.");
+    }
+}
+
+class AIChallenge extends Event {
+    @Override
+    public void schedule() {
+        System.out.println("AI Challenge.");
+    }
+}
+
+class CyberSecurity extends Event {
+    @Override
+    public void schedule() {
+        System.out.println("Cybersecurity Challenge.");
+    }
+}
+
+class BusinessCase extends Event {
+    @Override
+    public void schedule() {
+        System.out.println("Business Case Competition.");
+    }
+}
+class Main{
+    public static void main(String[] args) {
+        Event s = new SpeedProgramming();
+        s.schedule();
+        Event w = new WebDevelopment();
+        w.schedule();
+        Event ai = new AIChallenge();
+        ai.schedule();
+        Event cy = new CyberSecurity();
+        cy.schedule();
+        Event bc = new BusinessCase();
+        bc.schedule();
+    }
+}
